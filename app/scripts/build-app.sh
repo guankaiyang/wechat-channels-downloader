@@ -6,13 +6,15 @@ cd "$(dirname "$0")/.."
 swift build -c release --product ChannelsDownloader
 BIN="$(swift build -c release --show-bin-path)/ChannelsDownloader"
 
-APP="build/WeChat Channels Downloader.app"
+# ".noindex" keeps Spotlight from listing this build copy next to the installed app.
+OUT="build.noindex"
+APP="$OUT/WeChat Channels Downloader.app"
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp "$BIN" "$APP/Contents/MacOS/ChannelsDownloader"
 cp Resources/Info.plist "$APP/Contents/Info.plist"
-[ -f build/AppIcon.icns ] || swift scripts/make-icon.swift build/AppIcon.icns
-cp build/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
+[ -f "$OUT/AppIcon.icns" ] || swift scripts/make-icon.swift "$OUT/AppIcon.icns"
+cp "$OUT/AppIcon.icns" "$APP/Contents/Resources/AppIcon.icns"
 
 plutil -lint "$APP/Contents/Info.plist"
 codesign --force --deep -s - "$APP"

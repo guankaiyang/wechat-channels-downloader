@@ -1,5 +1,5 @@
-# Swift build output (rebuilt by scripts/build-app.sh and scripts/test.sh)
+# Swift build output (rebuilt by scripts/build-app.sh and scripts/test.sh; app/build.noindex is hidden from Spotlight)
 .build/
-app/build/
+app/build.noindex/
 .swiftpm/
 .DS_Store
