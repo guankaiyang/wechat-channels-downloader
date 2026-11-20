@@ -1,0 +1,5 @@
+# Swift build output (rebuilt by scripts/build-app.sh and scripts/test.sh)
+.build/
+app/build/
+.swiftpm/
+.DS_Store
