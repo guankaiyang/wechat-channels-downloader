@@ -114,7 +114,7 @@ which that switch is off.
 ### 3. Build and install the app
 
 ```bash
-git clone https://github.com/TheWhaele/wechat-channels-downloader.git
+git clone https://github.com/guankaiyang/wechat-channels-downloader.git
 cd wechat-channels-downloader/app
 scripts/build-app.sh --install
 ```
